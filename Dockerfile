@@ -9,7 +9,7 @@ RUN  apt-get update \
  && apt-get clean
 
 ENV TERRAFORM_VERSION 0.11.13
-RUN curl https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip > terraform.zip \
+RUN curl https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip > terraform.zip \
  && unzip terraform.zip -d /bin \
  && rm terraform.zip
 
