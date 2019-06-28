@@ -4,7 +4,8 @@ RUN  apt-get update \
   apt-transport-https \
   ca-certificates \
   curl \
-  unzip \ 
+  unzip \
+  git \
   gnupg2 \
  && apt-get clean
 
