@@ -9,12 +9,12 @@ RUN  apt-get update \
   gnupg2 \
  && apt-get clean
 
-ENV TERRAFORM_VERSION 0.11.13
+ENV TERRAFORM_VERSION 0.12.7
 RUN curl https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip > terraform.zip \
  && unzip terraform.zip -d /bin \
  && rm terraform.zip
 
-ENV HELM_VERSION 2.13.1
+ENV HELM_VERSION 2.14.3
 RUN curl https://storage.googleapis.com/kubernetes-helm/helm-v${HELM_VERSION}-linux-amd64.tar.gz | tar -zx -C /bin --strip-components=1
 
 RUN curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - \
