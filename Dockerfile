@@ -4,10 +4,14 @@ RUN  apt-get update \
   apt-transport-https \
   ca-certificates \
   curl \
+  jq \
+  python-pip \
+  python-yaml \
   unzip \
   git \
   gnupg2 \
- && apt-get clean
+ && apt-get clean \
+ && pip install --no-cache-dir yq
 
 ENV TERRAFORM_VERSION 0.11.13
 RUN curl https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip > terraform.zip \
