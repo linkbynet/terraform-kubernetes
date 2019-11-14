@@ -18,8 +18,11 @@ RUN curl https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform
  && unzip terraform.zip -d /bin \
  && rm terraform.zip
 
-ENV HELM_VERSION 2.15.1
-RUN curl https://storage.googleapis.com/kubernetes-helm/helm-v${HELM_VERSION}-linux-amd64.tar.gz | tar -zx -C /bin --strip-components=1
+ENV HELM_VERSION_2 2.15.1
+RUN curl -s https://storage.googleapis.com/kubernetes-helm/helm-v${HELM_VERSION_2}-linux-amd64.tar.gz | tar -zxv -C /bin --strip-components=1 --transform 's|linux-amd64/helm|linux-amd64/helm2|' linux-amd64/helm
+
+ENV HELM_VERSION 3.0.0
+RUN curl -s https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz | tar -zx -C /bin --strip-components=1 linux-amd64/helm
 
 RUN curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - \
  && echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | tee -a /etc/apt/sources.list.d/kubernetes.list \
