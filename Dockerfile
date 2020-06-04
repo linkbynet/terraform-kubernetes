@@ -31,3 +31,6 @@ RUN curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add 
  && apt-get install -y --no-install-recommends \
       kubectl \
  && apt-get clean
+
+ENV KUSTOMIZE_VERSION 3.6.1
+RUN curl https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv${KUSTOMIZE_VERSION}/kustomize_v${KUSTOMIZE_VERSION}_linux_amd64.tar.gz -L -o - | tar -zx -C /bin
